@@ -1,0 +1,14 @@
+<!--pages/upgrade/product/product.wxml-->
+<view>
+  <cp-reupstep steptype="{{1}}" active="{{2}}"></cp-reupstep>
+  <cp-product productList="{{productList}}" isLogin="{{isshow}}" shopcardcount="{{shopcardcount}}" bind:addshopcard="addshopcard" bind:goshoppingcard="goshoppingcard"></cp-product>  
+
+  <van-goods-action>
+    <van-goods-action-button
+      text="去结算"
+      bind:click="next"
+    />
+  </van-goods-action>
+</view>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

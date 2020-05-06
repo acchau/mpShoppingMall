@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-stepper": "../../dist/stepper/index",
+    "van-image": "../../dist/image/index",
+    "van-checkbox": "../../dist/checkbox/index",
+    "van-submit-bar": "../../dist/submit-bar/index",
+    "van-swipe-cell": "../../dist/swipe-cell/index",
+    "van-tag": "../../dist/tag/index"
+  }
+}

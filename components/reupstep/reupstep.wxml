@@ -1,0 +1,4 @@
+<!--components/reupstep/reupstep.wxml-->
+  <view>
+    <van-steps steps="{{ steptype == 0 ? registersteps :  upgradesteps}}" active="{{ active }}" />
+  </view>

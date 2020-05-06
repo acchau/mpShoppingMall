@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "van-notice-bar": "../../dist/notice-bar/index",
+    "cp-shoppingcart": "../../components/shoppingcart/shoppingcart",
+    "van-dialog": "../../dist/dialog/index",
+    "van-toast": "../../dist/toast/index"
+  }
+}

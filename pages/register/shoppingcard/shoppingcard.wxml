@@ -1,0 +1,12 @@
+<!--pages/register/shoppingcard/shoppingcard.wxml-->
+<scroll-view wx:if="{{shopAttr.minTotalMoney > shoporderAmount}}" scroll-x class="bg-white nav text-center fixed">
+   <van-notice-bar 
+      text="再购{{shopAttr.minTotalMoney-shoporderAmount}}元满足条件（不计俱乐部产品）"
+    />
+</scroll-view>
+
+<cp-shoppingcart showmargintop="{{shopAttr.minTotalMoney > shoporderAmount}}" productList="{{productList}}" shoptype="{{1}}"
+ productType="{{1}}" orderAmount="{{orderAmount}}" checkedlength="{{checkedlength}}" allchecked="{{allchecked}}"
+ bind:onClose='onClose' bind:onChange='onChange' bind:onStepChange='onStepChange' bind:onAllChange='onAllChange' bind:onsubmit='onsubmit'></cp-shoppingcart>
+
+ <van-toast id="van-toast" />

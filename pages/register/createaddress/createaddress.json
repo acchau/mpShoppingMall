@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "新增收货地址",
+  "usingComponents": {
+    "van-steps": "../../dist/steps/index",
+    "van-field": "../../dist/field/index",
+    "van-action-sheet": "../../dist/action-sheet/index",
+    "van-area": "../../dist/area/index",
+    "van-popup": "../../dist/popup/index",
+    "van-toast": "../../dist/toast/index"
+  }
+}

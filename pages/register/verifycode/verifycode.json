@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "注册",
+    "usingComponents": {
+      "van-field": "../../dist/field/index",
+      "van-dialog": "../../dist/dialog/index",
+      "van-count-down": "../../dist/count-down/index",
+      "van-toast": "../../dist/toast/index"
+    }
+}

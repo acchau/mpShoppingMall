@@ -1,0 +1,14 @@
+<!--pages/upgrade/level/level.wxml-->
+<cp-reupstep steptype="{{1}}" active="{{0}}"></cp-reupstep>
+
+<view class="padding bg-white margin-top-sm">
+    <van-row>
+        <van-col span="6"><view class="text-right text-content">升级级别：</view> </van-col>
+        <van-col span="18"><view class="text-left text-content text-red">合伙人</view></van-col>
+    </van-row> 
+ 
+</view>
+
+<view class="padding flex flex-direction">
+    <button class="cu-btn bg-orange-xl margin-tb-sm lg" role="button" bindtap="next" >下一步</button>
+</view>

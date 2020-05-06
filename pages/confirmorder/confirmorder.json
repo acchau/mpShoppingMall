@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "确认订单",
+  "usingComponents": {
+    "van-icon": "../../dist/icon/index",
+    "van-submit-bar": "../../dist/submit-bar/index",
+    "van-image": "../../dist/image/index",
+    "van-tag": "../../dist/tag/index",
+    "van-divider": "../../dist/divider/index",
+    "van-switch": "../../dist/switch/index",
+    "van-dialog": "../../dist/dialog/index",
+    "van-field": "../../dist/field/index",
+    "van-toast": "../../dist/toast/index"
+  }
+}

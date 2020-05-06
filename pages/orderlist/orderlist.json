@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "usingComponents": {
+    "cp-orderlist":"../../components/orderlist/orderlist",
+    "van-toast": "../../dist/toast/index"    
+  }
+}

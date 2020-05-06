@@ -1,0 +1,41 @@
+<!--components/signagree/signagree.wxml-->
+<view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+        <view class="text-xl padding">
+            <text class="text-black text-bold">{{personal.title}}</text>
+        </view>
+    </view>
+</view>
+
+  <view>
+    <van-cell-group>
+      <van-field value="{{ personal.name }}" readonly label="姓名：" />
+      <van-field value="{{ personal.identityId }}" readonly label="身份证号码：" />
+    </van-cell-group>
+  </view>
+
+  <view class="solids-bottom padding-xs flex align-center bg-white">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-sm text-left padding">{{ personal.protocolContent }}</view>
+    </view>
+  </view>
+
+  <view class="padding bg-white">
+    <view class="text-right padding-xs">保证人：{{personal.name}}</view>
+    <view class="text-right padding-xs">{{time}}</view>
+  </view>
+  <view class="padding ">
+    <van-checkbox value="{{ checked }}" shape="square" bind:change="onChange">
+      <text style="color:red;">我已阅读并同意</text>
+    </van-checkbox>
+
+    <view>
+      <block wx:for="{{personal.protocolLinks}}" wx:key="key">
+        <text style="color:blue" data-src="{{item.urlLink}}" bindtap="agree">《{{item.title}}》</text>
+      </block>     
+    </view>
+  </view>
+
+   <view class="padding flex flex-direction">
+    <button class="cu-btn bg-orange-xl margin-tb-sm lg" role="button" bindtap="_next" disabled="{{!checked}}" >下一步</button>
+  </view>

@@ -1,0 +1,6 @@
+<!--pages/register/signagree/signagree.wxml-->
+<view>
+  <cp-reupstep  active="{{1}}"></cp-reupstep>
+  <cp-signagree personal="{{personal}}" bind:next="next"></cp-signagree>
+</view>
+<van-toast id="van-toast" />

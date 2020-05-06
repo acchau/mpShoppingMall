@@ -1,0 +1,17 @@
+<!--pages/orderlist/orderlist.wxml-->
+<wxs src="../../utils/com.wxs" module="com" />
+<scroll-view scroll-x class="bg-white nav text-center fixed" >
+  <view class="cu-item {{index==tabType?'text-orange cur':''}}" wx:for="{{tabNav}}" wx:key="index" bindtap='tabSelect' data-id="{{index}}">
+    {{tabNav[index]}}
+  </view>
+</scroll-view>
+
+<block wx:if="{{tabType == 0}}">
+  <cp-orderlist  orderList="{{orderList}}" bind:orderdetail="orderdetail" bind:payment="payment"></cp-orderlist>
+</block>
+
+<block wx:if="{{tabType==1}}">
+  <cp-orderlist orderList="{{unpayorderList}}" bind:orderdetail="orderdetail" bind:payment="payment"></cp-orderlist>
+</block>
+
+  <van-toast id="van-toast" />

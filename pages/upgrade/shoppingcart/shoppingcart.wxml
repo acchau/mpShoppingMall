@@ -1,0 +1,13 @@
+<!--pages/upgrade/shoppingcart/shoppingcart.wxml-->
+<scroll-view wx:if="{{minTotalMoney > shoporderAmount}}" scroll-x class="bg-white nav text-center fixed">
+   <van-notice-bar 
+      text="再购{{minTotalMoney - shoporderAmount}}元满足条件"
+    />
+</scroll-view>
+<cp-shoppingcart showmargintop="{{minTotalMoney > shoporderAmount}}" productList="{{productList}}" shoptype="{{1}}" 
+ productType="{{3}}" orderAmount="{{orderAmount}}" checkedlength="{{checkedlength}}" allchecked="{{allchecked}}"
+ bind:onClose='onClose' bind:onChange='onChange' bind:onStepChange='onStepChange' bind:onAllChange='onAllChange' bind:onsubmit='onsubmit'></cp-shoppingcart>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />
+

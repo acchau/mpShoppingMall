@@ -1,0 +1,22 @@
+/* components/shoppingcart/shoppingcart.wxss */
+
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+  display: inline-block;
+  width: 65px;
+  height: 170px;
+  font-size: 15px;
+  line-height: 44px;
+  color: #fff;
+  text-align: center;
+  background-color: #f44;
+}
+
+.custom-class {
+  margin-top: 10000rpx;
+
+}
+
+@import '/colorui/main.wxss';
+@import '/colorui/icon.wxss';
+

@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "完善个人信息",
+    "usingComponents": {
+      "cp-reupstep":"../../components/reupstep/reupstep",
+      "van-field": "../../dist/field/index",
+      "van-action-sheet": "../../dist/action-sheet/index",
+      "van-area": "../../dist/area/index",
+      "van-popup": "../../dist/popup/index",
+      "van-toast": "../../dist/toast/index"
+    }
+}

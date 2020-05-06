@@ -1,0 +1,64 @@
+<!--pages/login/login.wxml-->
+
+<view class="bg-white padding" style="height: 100vh;">    
+  <view class="grid col-1 margin-bottom text-center">
+    <view class="padding">
+      <view class="cu-avatar xl round margin-left" 
+      style="background-image:url({{logourl}});"></view>
+    </view>
+    <view class="padding">
+      <van-cell-group>
+        <van-field          
+          placeholder="请输入会员编号"
+          border="{{ true }}"
+          bind:change="onNChange"
+          error-message="{{numbermsg}}"
+          bind:blur="onNBlur"
+        />
+      </van-cell-group>    
+    </view>
+    <view class="padding">
+      <van-cell-group>
+        <van-field          
+          placeholder="请输入密码"
+          password="{{ true }}"    
+          border="{{ true }}"    
+          bind:change="onPChange"
+          error-message="{{pwdMsg}}"
+          bind:blur="onPBlur"
+        />
+      </van-cell-group>
+    </view>
+    <view class="padding">
+      <view class="grid col-2 margin-bottom text-center">
+        <view class="padding">
+            <van-cell-group>
+              <van-field                
+                placeholder="请输入验证码"
+                border="{{ true }}"
+                bind:change="onVChange"
+                error-message="{{vcodeMsg}}"
+                bind:blur="onVBlur"                
+              />
+            </van-cell-group>
+        </view>
+        <view class="padding">
+          <view style="width:240rpx;height:100rpx;overflow:hidden;" bindtap="updateVCode">
+            <canvas canvas-id="canvas"></canvas>
+          </view>
+        </view>
+      </view>
+    </view>      
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-orange-xl margin-tb-sm lg" role="button" bindtap="login" aria-disabled="false">登录</button>
+      <view class="grid col-2 margin-bottom text-center">
+        <view class="padding text-left text-red" bindtap="register">新用户注册</view>
+        <view class="padding text-right" bindtap="forgetpwd" >忘记密码</view>
+      </view>
+    </view>
+  </view>
+
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast" />
+</view>
+

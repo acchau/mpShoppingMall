@@ -1,0 +1,44 @@
+<view>
+
+  <view>
+
+    <van-cell-group>
+
+      <van-field value="{{personal.name}}" required clearable label="收货人："  placeholder="请输入收货人姓名" 
+      error-message="{{nameMsg}}" bind:change="onNChange" bind:blur="onNBlur" />
+
+      <van-field value="{{personal.phone}}" required clearable label="联系电话：" placeholder="请填写手机号码"  bind:change="onPChange"
+      error-message="{{phonemsg}}" bind:blur="onPBlur"/>
+
+      <van-field value="{{personal.areaChoose}}" required readonly clickable label="所属地区：" icon="arrow" placeholder="请选择" 
+      error-message="{{areaChooseCodeMsg}}" bind:click-icon="onArea"  bindtap="onArea" />
+
+      <van-field value="{{personal.areadetail}}" required clearable label="详细地址：" clearable placeholder="请输入详细地址" bind:change="onAChange"
+      error-message="{{areaMsg}}" bind:blur="onABlur"/>
+
+      <van-field value="{{personal.postalcode}}" required clearable label="邮政编码：" placeholder="请输入邮政编码" bind:change="onPostalChange"
+      error-message="{{postalcodemsg}}" bind:blur="onPostalBlur"/> 
+
+      <view class="padding">
+        <van-checkbox value="{{ defaultchecked }}" checked-color="#ee0a24" bind:change="ondefaultChange">
+          设为默认地址
+        </van-checkbox>
+      </view>
+    </van-cell-group>
+
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-orange-xl margin-tb-sm lg" role="button" bindtap="save" aria-disabled="false">保存并使用</button>
+  </view>
+
+
+  <van-popup
+  show="{{ showAreaList }}"
+  position="bottom"
+  custom-style="height: 55%;"
+  bind:close="onAreaLisClose"
+  >
+    <van-area area-list="{{ areaList }}"  title="选择所在地区" bind:confirm="areaconfirm" bind:cancel="areacancel"/>
+  </van-popup>
+</view>
+<van-toast id="van-toast" />

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "升级代理",
+  "usingComponents": {
+    "cp-reupstep":"../../components/reupstep/reupstep",
+    "van-row": "../../dist/row/index",
+    "van-col": "../../dist/col/index"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "升级代理",
+  "usingComponents": {
+      "cp-reupstep":"../../components/reupstep/reupstep",
+      "cp-product":"../../components/product/product",       
+      "van-dialog": "../../dist/dialog/index",
+      "van-toast": "../../dist/toast/index",
+      "van-goods-action": "../../dist/goods-action/index",
+      "van-goods-action-icon": "../../dist/goods-action-icon/index",
+      "van-goods-action-button": "../../dist/goods-action-button/index"
+  }
+}

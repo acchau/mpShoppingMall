@@ -1,0 +1,8 @@
+<!--pages/shoppingcard/shoppingcard.wxml-->
+
+<cp-shoppingcart showmargintop="{{false}}" productList="{{productList}}" level="{{level}}" 
+ productType="{{2}}" orderAmount="{{orderAmount}}" checkedlength="{{checkedlength}}" allchecked="{{allchecked}}"
+ bind:onClose='onClose' bind:onChange='onChange' bind:onStepChange='onStepChange' bind:onAllChange='onAllChange' bind:onsubmit='onsubmit'></cp-shoppingcart>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

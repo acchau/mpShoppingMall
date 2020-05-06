@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/login/login",
+    "pages/forgetpwd/forgetpwd",
+    "pages/register/verifycode/verifycode",
+    "pages/register/personal/personal",
+    "pages/register/signagree/signagree",
+    "pages/register/purchaseproducts/purchaseproducts",
+    "pages/register/Insuranceproducts/Insuranceproducts",
+    "pages/register/shoppingcard/shoppingcard",
+    "pages/register/confirmorder/confirmorder",
+    "pages/register/createaddress/createaddress",
+    "pages/register/regcomplete/regcomplete",
+    "pages/product/yunshang/yunshang",
+    "pages/shoppingcard/shoppingcard",
+    "pages/confirmorder/confirmorder",
+    "pages/createaddress/createaddress",
+    "pages/addresslist/addresslist",
+    "pages/success/success",
+    "pages/orderlist/orderlist",
+    "pages/orderdetail/orderdetail",
+    "pages/upgrade/level/level",
+    "pages/upgrade/signagree/signagree",
+    "pages/upgrade/product/product",
+    "pages/upgrade/shoppingcart/shoppingcart",
+    "pages/upgrade/upcomplete/upcomplete"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/image/icon_home.png",
+        "selectedIconPath": "/image/icon_home.png"
+      },
+      {
+        "pagePath": "pages/product/yunshang/yunshang",
+        "text": "产品购买",
+        "iconPath": "/image/product.png",
+        "selectedIconPath": "/image/product.png"
+      },
+      {
+        "pagePath": "pages/shoppingcard/shoppingcard",
+        "text": "购物车",
+        "iconPath": "/image/ShoppCart.png",
+        "selectedIconPath": "/image/ShoppCart.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "/image/icon_mine.png",
+        "selectedIconPath": "/image/icon_mine.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

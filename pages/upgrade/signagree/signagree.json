@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "cp-reupstep":"../../components/reupstep/reupstep",
+    "cp-signagree":"../../components/signagree/signagree",
+    "van-toast": "../../dist/toast/index"
+  }
+}

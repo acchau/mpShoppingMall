@@ -1,0 +1,19 @@
+<!--pages/register/Insuranceproducts/Insuranceproducts.wxml-->
+
+<scroll-view scroll-x class="bg-white nav text-center fixed">
+  <cp-reupstep  active="{{2}}"></cp-reupstep>
+   <van-notice-bar 
+      text="俱乐部产品只能选择一个"
+    />
+</scroll-view>
+
+<view>
+  <cp-product productList="{{productList}}" isLogin="{{true}}" shopcardcount="{{shopcardcount}}" bind:addshopcard="addshopcard" bind:goshoppingcard="goshoppingcard"></cp-product>  
+
+  <view class="cu-bar tabbar bg-white shadow foot">
+    <button class="cu-btn bg-white-xl margin-tb-sm lg" style="width:46%;height:100%" role="button" bindtap="previous">上一步</button>
+    <button class="cu-btn bg-orange-xl margin-tb-sm lg" style="width:46%;height:100%" role="button" bindtap="settlement">去结算</button>
+  </view>
+
+</view>
+<van-toast id="van-toast" />

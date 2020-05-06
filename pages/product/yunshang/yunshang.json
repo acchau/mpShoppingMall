@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "云商进货",
+    "usingComponents": {
+      "cp-product":"../../components/product/product",
+      "van-dialog": "../../dist/dialog/index",
+      "van-toast": "../../dist/toast/index"
+    }
+}

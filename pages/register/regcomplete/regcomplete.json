@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "完成注册",
+  "usingComponents": {
+    "cp-reupstep":"../../components/reupstep/reupstep",
+    "cp-complete":"../../components/complete/complete"
+  }
+}

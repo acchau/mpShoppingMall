@@ -1,0 +1,60 @@
+<!--pages/register/verifycode/verifycode.wxml-->
+<view class="bg-white padding" style="height: 100vh;">    
+  <view class="grid col-1 margin-bottom text-center">
+    <view class="padding">
+      <view class="cu-avatar xl round margin-left" 
+      style="background-image:url({{logourl}});"></view>
+    </view>
+    <view class="padding">
+      <van-cell-group>
+        <van-field          
+          placeholder="请输入手机号"
+          border="{{ true }}"
+          bind:change="onPChange"
+          error-message="{{phonemsg}}"          
+        />
+      </van-cell-group>    
+    </view>
+
+    <view class="padding">
+      <view class="grid col-2 margin-bottom text-center">
+        <view class="padding">
+            <van-cell-group>
+              <van-field                
+                placeholder="请输入验证码"
+                border="{{ true }}"
+                bind:change="onVChange" 
+                error-message="{{vcodemsg}}"               
+              />
+            </van-cell-group>
+        </view>
+        <view class="padding">
+          <button wx:if="{{btncodeshow}}" class="cu-btn bg-orange margin-tb-sm" style="font-size:27rpx" role="button" bindtap="getcode">
+            <view>获取短信验证码</view>  
+          </button>
+
+          <button wx:if="{{!btncodeshow}}" disabled class="cu-btn bg-orange margin-tb-sm" style="font-size:27rpx" role="button">
+            <view>
+              <van-count-down
+                use-slot              
+                time="{{ time }}"
+                bind:change="onTChange"
+                bind:finish="timefinished"
+                >
+                  <text>{{ timeData.seconds }}秒后重获验证码</text>
+              </van-count-down> 
+            </view>
+          </button>
+
+        </view>
+      </view>
+    </view>     
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-orange-xl margin-tb-sm lg" role="button" bindtap="next" aria-disabled="false">下一步</button>
+    </view>
+  </view>
+
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast" />
+</view>
+

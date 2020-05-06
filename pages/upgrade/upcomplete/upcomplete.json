@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "升级代理",
+    "usingComponents": {
+      "cp-reupstep": "../../components/reupstep/reupstep",
+      "cp-complete": "../../components/complete/complete"      
+    }
+}

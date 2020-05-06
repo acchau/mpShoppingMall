@@ -1,0 +1,174 @@
+<!--pages/confirmorder/confirmorder.wxml-->
+<wxs src="../../utils/com.wxs" module="com" />
+
+<scroll-view  scroll-x class="bg-white nav text-center fixed">
+  <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xxs margin-bottom-xxs">        
+    <view class="padding-xs flex align-center">
+      <view wx:if="{{!address}}" class="flex-sub text-center">
+        <view class="padding-xs" bindtap="createadress">
+          <van-icon name="location-o" color="red" />新增收货地址
+        </view>          
+      </view>
+      <view wx:if="{{address}}" class="flex-sub">
+        <view class="flex align-center">
+          <view class="flex padding-xs radius"><van-icon name="location-o" color="red" /></view>
+          <view class="flex-treble  padding radius">
+            <view class="text-left">{{address.recipientName}} {{address.tel}}</view>
+            <view class="text-left" style="white-space: normal">{{address.province}}{{address.city}}{{address.county}}{{address.streetAddress}}</view>
+          </view>
+          <view class="flex padding-xs radius" bindtap="addresslist"><van-icon name="arrow" /></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view style="margin-top:160rpx;margin-bottom:200rpx">  
+
+  <view class="bg-white padding">
+    <view class="grid col-1 margin-bottom text-center ">
+      <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xs"  wx:for="{{productList}}" wx:key="productId">        
+        <view class="padding-xs flex align-center">
+          <view class="flex-sub text-center">
+              <view class="padding-xs">
+                <view class="grid col-2">
+                  <van-image width="6.8rem" height="4.8rem" fit="cover" src="{{item.imageUrl?item.imageUrl:item.productImage}}" />
+                                    
+                  <view class="grid col-1 text-left" >
+                    <view style="padding:6rpx" >{{item.productName}}</view>
+
+                    <view class="grid col-2 padding-xs text-center"> 
+                      <view class="padding-xs text-left text-df">
+                        <view class="text-red">￥{{com.floatFormat(item.price?item.price:item.preferentialPrice,2)}}</view>
+                        <view>pv：{{item.pv?item.pv:item.preferentialPV}}</view>
+                      </view>
+                      <view class="padding-xs">
+                        <view class="text-df text-right">×{{item.quantity}}</view>                            
+                      </view>
+                    </view> 
+
+                  </view> 
+                  
+                </view>
+              </view>
+              
+          </view>
+        </view>
+
+
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{yssuborder.electronicMoneyBalance > 0}}" class="padding-xs radius shadow shadow-lg bg-white margin-top-xs" >        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="padding-xs">
+          <view class="grid col-2">
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-left">                                            
+                <view class="text-df">购物积分 <text class="text-sm text-red">剩余{{com.floatFormat(showshoppoint,2)}}</text></view>
+              </view>
+            </view>
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-right">                                            
+                <view class="text-red text-df">
+                  <van-switch
+                    bind:change="onChange"
+                    checked="{{ checked }}"
+                    active-color="#ee0a24"
+                    inactive-color="#cccccc"
+                    size="18px"
+                  />
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>  
+      </view>
+    </view>
+  </view>
+
+
+  <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xs">        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="padding-xs">
+          <view class="grid col-2">
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-left">                                            
+                <view class="text-df padding-xs">产品总额</view>
+                <view class="text-df padding-xs">运费</view>
+                <view class="text-df padding-xs">获得PV积分</view>
+                <view class="text-df padding-xs" wx:if="{{checked}}">购物积分抵扣</view>
+              </view>
+            </view>
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-right">                                            
+                <view class="text-red text-df padding-xs">￥{{com.floatFormat(yssuborder.totalMoney,2)}}</view>
+                <view class="text-red text-df padding-xs">+￥{{com.floatFormat(yssuborder.freight,2)}}</view>
+                <view class="text-red text-df padding-xs">{{yssuborder.totalPv}}</view>
+                <view class="text-red text-df padding-xs" wx:if="{{checked}}">-￥{{com.floatFormat(orderAmount>yssuborder.electronicMoneyBalance?yssuborder.electronicMoneyBalance:orderAmount,2)}}</view>
+              </view>
+            </view>
+          </view>
+        </view>  
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <view class="padding-xs radius shadow shadow-lg  margin-top-xs" >        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="padding-xs">
+          <van-divider contentPosition="center">没有更多了</van-divider>
+        </view>  
+      </view>
+    </view>
+  </view>
+
+
+  <van-dialog
+    use-slot
+    title="二级密码"
+    show="{{ secondShow }}"
+    show-cancel-button
+    bind:close="onSecondClose"
+    bind:confirm="onSecondConfirm"
+  >
+    <view class="padding-xs radius bg-white margin-top-xs" >
+        <van-divider />
+        <view class="padding-xs" >
+          <van-field          
+            type="password"        
+            placeholder="请输入二级密码"
+            required
+            value="{{secondpwd}}"
+            clearable="{{true}}"
+            border="{{ false }}"
+            error-message="{{errsecondpwdMsg}}"
+            bind:blur="secondpwdBlur"
+          />
+        </view>
+        <van-divider />
+        <view class="padding-xs text-df text-center" >
+          为保证您的消费安全，请输入您的二级密码
+        </view>
+    </view>
+  </van-dialog>
+
+</view>
+
+<van-submit-bar
+  price="{{ totalAmount }}"
+  button-text="微信支付"
+  bind:submit="onsubmit"
+  label="实付金额："
+  safe-area-inset-bottom="{{false}}"
+>
+</van-submit-bar>
+
+  <van-toast id="van-toast" />

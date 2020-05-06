@@ -1,0 +1,22 @@
+<page style='background: white;'>
+
+
+  <view wx:if="{{!isShowLogin}}" class='wrap-swiper'>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" current="{{current}} "  style="width:100vw">
+      <block wx:for="{{magazInfo.previews}}" wx:key="key">
+        <swiper-item>
+          <image src="{{item.picture}}" mode="aspectFill" class="slide-image" bindload="imageLoad" id="{{index}}"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+
+  <view class="bg-view" wx:if="{{isShowLogin}}">
+      
+      <image class="bg-login" src="/image/bg_login.png" mode="widthFix"></image>
+     
+      <button class="start-container" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+  </view>
+
+</page>

@@ -1,0 +1,5 @@
+<!--pages/upgrade/signagree/signagree.wxml-->
+<cp-reupstep steptype="{{1}}" active="{{1}}"></cp-reupstep>
+<cp-signagree personal="{{personal}}" bind:next="next"></cp-signagree>
+
+<van-toast id="van-toast" />

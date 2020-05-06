@@ -1,0 +1,69 @@
+<wxs src="../../utils/com.wxs" module="com" />
+<!--components/shoppingcart/shoppingcart.wxml-->
+<view>  
+  <view class="bg-white padding" style="margin-top:{{showmargintop?70:0}}rpx;margin-bottom:100px">
+    <view class="grid col-1 margin-bottom text-center ">
+      <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xs"  wx:for="{{productList}}" wx:key="productID">        
+
+        <van-swipe-cell id="swipe-cell-{{index}}" data-index="{{index}}" right-width="{{ 65 }}" async-close bind:close="_onClose">
+
+          <view class="padding-xs flex align-center">
+            <van-checkbox disabled="{{(productType == 2 && !item.productState)}}" value="{{ item.checked }}" data-index="{{index}}" bind:change="_onChange"></van-checkbox>          
+            <view class="flex-sub text-center">
+                <view class="padding-xs">
+                  <view class="grid col-2">
+                    <van-image width="6.8rem" height="4.8rem" lazy-load  fit="cover" src="{{item.productImage}}" />
+                                      
+                    <view class="grid col-1 text-left" >
+                      <view style="padding:6rpx" >{{item.productName}}</view>
+                      <view style="padding:6rpx">
+                        <van-tag wx:if="{{(productType == 2 && !item.productState)}}" round color="red">产品已下架</van-tag>
+                        <van-tag round color="#f2826a">{{com.productType(productType,item.insurance)}}</van-tag>                        
+                      </view>
+                    </view> 
+                    
+                  </view>
+                </view>
+                
+            </view>
+          </view>
+
+          <view class="padding-xs flex align-center">
+            <view class="flex-sub text-center">
+              <view class="padding-xs">
+                  <view class="grid col-2">
+                    <view class="padding-xs">
+                      <view class="grid col-2 padding-xs text-center">                      
+                        <view class="text-red text-df">￥{{com.floatFormat(com.getprice(level,item,shoptype),2)}}</view>
+                        <view class="text-df">PV：{{item.preferentialPV}}</view>
+                      </view>
+                    </view>
+                    <view class="padding-xs">
+                      <van-stepper disabled="{{(item.insurance?true:false) || (productType == 2 && !item.productState)}}" value="{{ item.quantity }}" data-index="{{index}}" step="{{item.step}}" min="{{item.step}}"
+                        bind:change="_onStepChange" />
+                    </view>
+                  </view>
+              </view>  
+            </view>
+          </view>
+
+          <view slot="right" class="align-center flex van-swipe-cell__right" style="height: 100%;justify-content: center;">删除</view>
+         </van-swipe-cell>
+
+      </view>
+    </view>
+  </view>
+
+</view>
+<van-submit-bar
+  price="{{ orderAmount }}"
+  button-text="去结算（{{checkedlength}}件）"
+  bind:submit="_onsubmit"
+  label="总计："
+  safe-area-inset-bottom="{{false}}"  
+  custom-class="custom-class"  
+>
+<view style="margin: 10px">
+  <van-checkbox value="{{ allchecked }}" bind:change="_onAllChange">全选</van-checkbox>
+</view> 
+</van-submit-bar>

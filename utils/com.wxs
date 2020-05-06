@@ -1,0 +1,89 @@
+var numberUtil = {
+  numberFormat: function (value,num) {
+    var v = parseInt(value)
+    return v.toFixed(num)
+  },
+  floatFormat:function(value,num){
+    var v = parseFloat(value)
+    return v.toFixed(num)
+  }
+}
+
+var business = {
+  ordertype: function(val){
+    var desc = '其他订单' 
+    
+    switch (val) {
+      case 18:
+        desc = '升级代理'
+      break;
+      case 21:
+        desc = '注册合伙人'
+      break;
+      case 37:
+        desc = '百万身价订单'
+        break;
+      case 64:
+        desc = '云商进货'
+        break;
+      default:
+        desc = '其他订单'
+        break;
+    }
+    return desc
+  },
+  productType: function(val,insurance){
+    var desc = '云商进货'        
+
+    switch (val) {
+        case 1:                
+            desc = insurance ? '俱乐部产品':'注册报单产品'
+        break;
+        case 2:
+            desc = '云商进货产品'
+            break;
+        case 3:
+            desc = '升级代理产品'
+            break;            
+    }
+    return desc
+  },
+
+  getprice: function(level,item,shoptype){
+    var price = 0
+    if(!item){
+      return price
+    }else if(shoptype == 1){
+      return item.partnerPrice ? item.partnerPrice : item.preferentialPrice
+    }else{
+      switch (level) {
+        case "VIP":
+          price = item.preferentialPrice
+          break;
+        case "健康顾问":
+          price = item.preferentialCustomerPrice
+          break;
+        case "合伙人":
+          price = item.partnerPrice
+          break;
+        case "联合创始人":
+          price = item.unionPrice
+          break;
+        case "核心战略":
+          price = item.corePrice
+          break;        
+      }
+      return price
+    }
+  }
+}
+
+
+
+module.exports = {
+  numberFormat: numberUtil.numberFormat,
+  floatFormat: numberUtil.floatFormat,
+  ordertype: business.ordertype,
+  productType:business.productType,
+  getprice:business.getprice
+}

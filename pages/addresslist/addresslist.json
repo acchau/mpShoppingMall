@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "选择收货地址",
+  "usingComponents": {
+        "van-checkbox": "../../dist/checkbox/index",
+        "van-checkbox-group": "../../dist/checkbox-group/index",
+        "van-button": "../../dist/button/index",
+        "van-tag": "../../dist/tag/index",
+        "van-toast": "../../dist/toast/index",
+        "van-goods-action": "../../dist/goods-action/index",
+        "van-goods-action-icon": "../../dist/goods-action-icon/index",
+        "van-goods-action-button": "../../dist/goods-action-button/index"
+  }
+}

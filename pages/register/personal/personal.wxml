@@ -1,0 +1,67 @@
+<!--pages/register/personal/personal.wxml-->
+<view>
+  <cp-reupstep  active="{{0}}"></cp-reupstep>
+
+  <view style="margin-top:4rpx">
+
+    <van-cell-group>
+      <van-field value="{{ personal.level }}" required readonly label="注册级别：" />
+
+      <van-field required clearable label="真实姓名：" clearable placeholder="请输入真实姓名" 
+      error-message="{{nameMsg}}" bind:change="onNChange" bind:blur="onNBlur"/>
+
+      <van-field required clearable label="身份证号码：" clearable placeholder="请输入身份证号码" 
+      error-message="{{cardMsg}}" bind:change="onCChange" bind:blur="onCBlur"/>
+
+      <van-field required clearable label="推荐人：" clearable placeholder="请输入推荐人" 
+      error-message="{{directMsg}}" bind:change="onDChange" bind:blur="onDBlur"/>
+
+      <van-field value="{{personal.storeIdShow}}" required clearable label="所属店铺：" clearable placeholder="请输入所属店铺" 
+      error-message="{{storeMsg}}" bind:change="onSChange" bind:blur="onSBlur"/>
+
+      <van-field value="{{personal.areaChoose}}" required readonly clickable label="所属地区：" icon="arrow" placeholder="请选择" 
+      error-message="{{areaChooseCodeMsg}}" bind:click-icon="onArea" bindtap="onArea" />
+
+      <van-field required clearable label="详细地址：" clearable placeholder="请输入详细地址" 
+      error-message="{{areaMsg}}" bind:blur="onABlur" bind:change="onAChange"/>
+
+      <van-field value="{{personal.renew}}" required readonly clickable label="续约方式：" icon="arrow" placeholder="选择您的续约方式" 
+      error-message="{{renewMsg}}" bind:click-icon="onRenew" bindtap="onRenew"/>
+
+      <van-field value="{{personal.health}}" required readonly label="健康俱乐部：" icon="arrow" placeholder="请选择" 
+      error-message="{{healthMsg}}" bind:click-icon="onHealth" bindtap="onHealth"/>
+
+    </van-cell-group>
+
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-orange-xl margin-tb-sm lg" role="button" bindtap="next" aria-disabled="false">下一步</button>
+  </view>
+
+
+  <van-action-sheet
+    show="{{ showRenew }}"
+    title="选择续约方式"
+    actions="{{ actionsRenew }}"
+    bind:close="onRenewClose"
+    bind:select="onRenewSelect"
+  />
+
+  <van-action-sheet
+    show="{{ showHealth }}"
+    title="是否参与健康俱乐部"
+    actions="{{ actionsHealth }}"
+    bind:close="onHealthClose"
+    bind:select="onHealthSelect"
+  />
+
+  <van-popup
+  show="{{ showAreaList }}"
+  position="bottom"
+  custom-style="height: 55%;"
+  bind:close="onAreaLisClose"
+  >
+    <van-area area-list="{{ areaList }}"  title="选择所在地区" bind:confirm="areaconfirm" bind:cancel="areacancel"/>
+  </van-popup>
+</view>
+<van-toast id="van-toast" />

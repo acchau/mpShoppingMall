@@ -1,0 +1,3 @@
+<!--pages/upgrade/upcomplete/upcomplete.wxml-->
+<cp-reupstep steptype="{{1}}" active="{{3}}"></cp-reupstep>
+<cp-complete message="恭喜你！升级完成，等待系统确认！"></cp-complete>

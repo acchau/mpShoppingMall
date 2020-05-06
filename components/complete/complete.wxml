@@ -1,0 +1,18 @@
+<!--components/complete/complete.wxml-->
+  <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xl margin-bottom-xs">
+
+    <view class="padding-xs flex align-center">
+
+      <view class="flex-sub text-center">
+        <view class="solid-bottom text-xsl padding">
+          <text class=" cuIcon-roundcheckfill text-green"></text>
+        </view>
+        <view class="padding text-red">{{message}}</view>
+      </view>
+    </view>
+    
+
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-orange-xl margin-tb-sm lg" role="button" bindtap="confirm" aria-disabled="false">确定</button>
+  </view>

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "van-button": "../../dist/button/index",
+    "van-card": "../../dist/card/index",
+    "van-tag": "../../dist/tag/index",
+    "van-row": "../../dist/row/index",
+    "van-col": "../../dist/col/index",
+    "van-toast": "../../dist/toast/index"
+  }
+}

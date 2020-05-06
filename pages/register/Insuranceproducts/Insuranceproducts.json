@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "选购俱乐部产品",
+  "usingComponents": {
+    "cp-reupstep":"../../components/reupstep/reupstep",
+    "cp-product":"../../components/product/product",
+    "van-notice-bar": "../../dist/notice-bar/index",
+    "van-toast": "../../dist/toast/index"
+  }
+}

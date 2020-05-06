@@ -1,0 +1,144 @@
+<!--pages/register/confirmorder/confirmorder.wxml-->
+
+<scroll-view  scroll-x class="bg-white nav text-center fixed">
+    <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xxs margin-bottom-xxs">        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view wx:if="{{!address}}" class="padding-xs" bindtap="createadress">
+          <van-icon name="location-o" color="red" />新增收货地址
+        </view>
+        <view wx:if="{{address}}" class="padding-xs" bindtap="createadress">
+          <van-icon name="location-o" color="red" /><text>{{address.name}} {{address.phone}}</text>
+          <view>{{address.areaChoose}} {{address.areadetail}}</view>
+        </view>   
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<view style="margin-top:116rpx;margin-bottom:200rpx">  
+
+  <view class="bg-white padding">
+    <view class="grid col-1 margin-bottom text-center ">
+      <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xs"  wx:for="{{productList}}" wx:key="productID">        
+        <view class="padding-xs flex align-center">
+          <view class="flex-sub text-center">
+              <view class="padding-xs">
+                <view class="grid col-2">
+                  <van-image width="6.8rem" height="4.8rem" fit="cover" src="{{item.productImage}}" />
+                                    
+                  <view class="grid col-1 text-left" >
+                    <view style="padding:6rpx" >{{item.productName}}</view>
+
+                    <view class="grid col-2 padding-xs text-center"> 
+                      <view class="padding-xs text-left text-df">
+                        <view class="text-red">￥{{item.insurance?item.preferentialPrice:item.partnerPrice}}</view>
+                        <view>pv：{{item.preferentialPV}}</view>
+                      </view>
+                      <view class="padding-xs">
+                        <view class="text-df text-right">×{{item.quantity}}</view>                            
+                      </view>
+                    </view> 
+
+                  </view> 
+                  
+                </view>
+              </view>
+              
+          </view>
+        </view>
+
+
+      </view>
+    </view>
+  </view>
+
+  <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xs">        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="padding-xs">
+          <view class="grid col-2">
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-left">                                            
+                <view class="text-df">产品总额</view>
+                <view class="text-df">运费</view>
+              </view>
+            </view>
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-right">                                            
+                <view class="text-red text-df">￥{{orderAmount}}</view>
+                <view class="text-red text-df">+￥00.00</view>
+              </view>
+            </view>
+          </view>
+        </view>  
+      </view>
+    </view>
+  </view>
+
+  <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xs" >        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="padding-xs">
+          <view class="grid col-2">
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-left">                                            
+                <view class="text-df">平台使用费</view>
+              </view>
+            </view>
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-right">                                            
+                <view class="text-red text-df">￥{{shopattr.isForerverContract?300:100}}</view>
+              </view>
+            </view>
+          </view>
+        </view>  
+      </view>
+    </view>
+  </view>
+
+  <view class="padding-xs radius shadow shadow-lg bg-white margin-top-xs" >        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="padding-xs">
+          <view class="grid col-2">
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-left">                                            
+                <view class="text-df">PV积分</view>
+              </view>
+            </view>
+            <view class="padding-xs">
+              <view class="grid col-1 padding-xs text-right">                                            
+                <view class="text-df">{{amountPV}}</view>
+              </view>
+            </view>
+          </view>
+        </view>  
+      </view>
+    </view>
+  </view>
+
+  <view class="padding-xs radius shadow shadow-lg  margin-top-xs" >        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="padding-xs">
+          <van-divider contentPosition="center">最底部</van-divider>
+        </view>  
+      </view>
+    </view>
+  </view>
+
+
+
+</view>
+
+<van-submit-bar
+  price="{{ totalAmount }}"
+  button-text="微信支付"
+  bind:submit="onsubmit"
+  label="实付金额："
+  safe-area-inset-bottom="{{false}}"
+>
+</van-submit-bar>
+
+<van-toast id="van-toast" />

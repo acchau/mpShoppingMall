@@ -1,0 +1,65 @@
+<!--pages/mine/mine.wxml-->
+<view>
+  <view>
+    <view class="UCenter-bg">
+      <!--style="background-image:url('../../image/defaultavatar.png');"-->
+      <view class="cu-avatar lg round margin-left">{{userInfo.leveName}}</view>  
+      <view wx:if="{{isLogin}}" class="text-df margin-top-xs margin-left-sm">
+        <view>{{userInfo.number}} <!--<text style="opacity:1">{{userInfo.businessLevel}}</text>--></view>
+        <view class="margin-top-xs">{{userInfo.name}}</view>        
+      </view>
+      <view wx:if="{{!isLogin}}" class="text-df margin-top margin-left-sm" bindtap="login">未登陆</view>
+    </view>
+  </view>
+
+  <view class="cu-list menu card-menu margin-top-sm  shadow-lg radius">
+
+    <view class="cu-bar bg-white solid-bottom margin-top  radius">
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text> 我的订单
+      </view>
+    </view>
+
+    <view class="cu-list grid col-4 no-border">
+        <view class="cu-item" bindtap="allorder">
+          <view class="cuIcon-calendar text-orange"></view>
+          <text>全部订单</text>
+        </view>
+
+        <view class="cu-item" bindtap="unpaid">
+          <view class="cuIcon-pay text-orange">
+            <view class="cu-tag badge" wx:if="{{unpaynum>0}}">
+              <block>{{unpaynum}}</block>
+            </view>
+          </view>
+          <text>待付款</text>
+        </view>
+
+    </view>
+  </view>
+
+  <view wx:if="{{userInfo.businessLevel == '健康顾问' || userInfo.businessLevel == 'VIP'}}" class="cu-list menu card-menu shadow-lg radius">
+
+    <view class="cu-bar bg-white solid-bottom margin-top  radius">
+      <view class="action">
+        <text class="cuIcon-title"></text> 我的工具
+      </view>
+    </view>
+
+    <view class="cu-list grid col-4 no-border">
+        <view class="cu-item" bindtap="upAgent">
+          <view class="cuIcon-pullup text-gray">            
+          </view>
+          <text>升级代理</text>
+        </view>        
+    </view>
+  </view>
+
+  <view wx:if="{{isLogin}}" class="padding-xl">
+    <button class="cu-btn block line-orange lg" role="button" aria-disabled="false" bindtap="logout">退出登录</button>
+  </view>
+
+  
+  <van-dialog id="van-dialog" />
+  <van-toast id="van-toast" />
+</view>

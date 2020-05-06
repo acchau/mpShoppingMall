@@ -1,0 +1,35 @@
+<!--pages/addresslist/addresslist.wxml-->
+
+<view class="margin-bottom-xl">
+  
+  <view wx:for="{{addresslist}}" wx:key="id" class="padding-xs radius shadow shadow-lg bg-white margin-top-xxs margin-bottom-xxs">        
+    <view class="padding-xs flex align-center">
+      <view class="flex-sub">
+        <view class="flex align-center">
+          <view class="flex padding-xs radius">
+            <van-checkbox value="{{ item.checked}}" data-index="{{index}}" checked-color="#ee0a24" bind:change="onChange"/>
+          </view>
+          <view class="flex-treble  padding radius">
+            <view class="text-left">{{item.recipientName}} {{item.tel}}</view>
+            <view class="text-left">            
+              <van-tag wx:if="{{item.isDefault}}" plain type="danger" >默认</van-tag>
+              {{item.province}}{{item.city}}{{item.county}}{{item.streetAddress}}
+            </view>
+          </view>
+          <view class="flex padding-xs radius" data-index="{{index}}" bindtap="modifyadress">
+            <van-button plain type="warning" size="mini">编辑</van-button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-goods-action>
+  <van-goods-action-button
+    text="新增收货地址"
+    bind:click="createadress"
+  />
+</van-goods-action>
+
+<van-toast id="van-toast" />

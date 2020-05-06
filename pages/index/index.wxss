@@ -1,0 +1,66 @@
+/* pages/index/index.wxss */
+
+
+swiper{
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+}
+ 
+.wrap{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.wrap-swiper{
+  position: relative;
+  background-color: white; 
+}
+
+.slide-image{
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-color: white; 
+}
+
+
+
+
+
+
+
+
+
+/* //登录 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: white ;
+}
+
+.start-container {
+  bottom: 130px;
+  border: 2px solid darkorchid;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  margin: auto;
+  /* text-align: center; */
+  font-size: 14px;
+}
+
+.bg-login {
+  width: 100vw;
+  height: 100vh;
+}
+.bg-view{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: white; 
+}

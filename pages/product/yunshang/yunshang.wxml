@@ -1,0 +1,7 @@
+<!--pages/product/yunshang/yunshang.wxml-->
+
+<view wx:if="{{isshow}}">
+  <cp-product productList="{{productList}}" isLogin="{{isshow}}" shopcardcount="{{shopcardcount}}"  bind:addshopcard="addshopcard" bind:goshoppingcard="goshoppingcard"></cp-product>  
+</view>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

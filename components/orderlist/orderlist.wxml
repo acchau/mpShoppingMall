@@ -1,0 +1,59 @@
+<!--components/orderlist/orderlist.wxml-->
+<wxs src="../../utils/com.wxs" module="com" />
+<view wx:for="{{orderList}}" wx:key="orderId" wx:for-item="order" data-orderId="{{order.orderId}}" catchtap="_orderdetail">  
+    <view class="cu-bar bg-white solid-bottom margin-top-xs">
+      <view class="action">
+        <text class="text-df">{{order.orderDate}}</text>
+      </view>
+      <view class="action">
+        <text class="text-orange">{{order.orderState == 0?'待付款':'已付款'}}</text>
+      </view>
+    </view>
+    <view class="padding-0 bg-white">
+      <view wx:for="{{order.products}}" wx:key="productId">
+        <van-card
+          tag="{{com.ordertype(order.orderType)}}"
+          desc="{{item.productName}}"
+          title="{{item.productName}}"
+          thumb="{{item.productImage}}"
+          >
+          <view slot="tags">
+            <van-row>
+              <van-col span="8">
+                <text class="text-price text-red text-xl" >{{com.floatFormat(item.price,2)}}</text>
+              </van-col>          
+            </van-row>   
+            <van-row>
+              <van-col span="8">
+                <view class="text-df">
+                  pv：{{item.pv}}
+                </view>
+              </van-col>
+              <van-col offset="8" span="8"> 
+                <view class="text-right text-df">
+                  x{{item.quantity}}
+                </view>
+              </van-col>
+            </van-row>             
+          </view>
+        
+        </van-card> 
+      </view>   
+    </view>
+    <view class="bg-white solid-top">
+      <van-row>
+        <van-col offset="10" span="14"> 
+          <view class="margin-sm text-df text-center">
+            共{{order.products.length}}件商品 合计：¥ {{com.floatFormat(order.needToPayMoney,2)}}
+          </view>
+        </van-col>
+      </van-row>    
+      <van-row wx:if="{{order.orderState==0?true:false}}">
+        <van-col offset="18" span="6"> 
+          <view class=" margin-sm text-center"  catchtap="_payment" data-ordertype="{{order.orderType}}" data-orderId="{{order.orderId}}">
+            <van-button plain  type="warning" size="small" >立即支付</van-button>
+          </view>
+        </van-col>
+      </van-row>    
+    </view>
+  </view>
