@@ -1,10 +1,10 @@
 
-var host = "https://wx.123bd.cc"   //	https://wx.123bd.cc http://10.6.12.10:8080
+var host = ""   //	
 
 var config = {
 
-  appid: 'wx3dc6985ee2c85a82',
-  secret: 'a5d8ff9d7d2698b258ce1f3e9179b103',
+  appid: '',
+  secret: '',
 
   // 下面的地址配合 Server 工作
   host,
